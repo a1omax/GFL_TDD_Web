@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <title>Calculation results</title>
+    </h:head>
+    <h:body>
+        <p:panel id="input" header="Interval input values" style="margin-bottom:10px;">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="start" value="Start" />
+                <h:outputLabel id="start" value="#{calculatorBean.calculatorData.startInterval}" />
+                <h:outputLabel for="end" value="End" />
+                <h:outputLabel id="end" value="#{calculatorBean.calculatorData.endInterval}" />
+                <h:outputLabel for="step" value="Step" />
+                <h:outputLabel id="step" value="#{calculatorBean.calculatorData.step}" />
+                <h:outputLabel for="a" value="a" />
+                <h:outputLabel id="a" value="#{calculatorBean.calculatorData.startInterval}" />
+            </h:panelGrid>
+        </p:panel>
+
+        <h:graphicImage value="#{calculationResultBean.chartData}" alt="Point Chart"/>
+
+        <p:panel id="minValuePanel" header="Min value" style="margin-bottom:10px;">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="minIndex" value="Min value index" />
+                <h:outputLabel id="minIndex" value="#{calculationResultBean.minIndex}" />
+                <h:outputLabel for="minValue" value="Min value" />
+                <h:outputLabel id="minValue" value="#{calculationResultBean.minValue}" />
+                <h:outputLabel for="minValueArgument" value="Min value argument" />
+                <h:outputLabel id="minValueArgument" value="#{calculationResultBean.minValueArgument}" />
+            </h:panelGrid>
+        </p:panel>
+
+
+        <p:panel id="maxValuePanel" header="Max value" style="margin-bottom:10px;">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="maxIndex" value="Max value index" />
+                <h:outputLabel id="maxIndex" value="#{calculationResultBean.maxIndex}" />
+                <h:outputLabel for="maxValue" value="Max value" />
+                <h:outputLabel id="maxValue" value="#{calculationResultBean.maxValue}" />
+                <h:outputLabel for="maxValueArgument" value="Max value argument" />
+                <h:outputLabel id="maxValueArgument" value="#{calculationResultBean.maxValueArgument}" />
+            </h:panelGrid>
+        </p:panel>
+
+        <p:panel id="otherValues" header="Other" style="margin-bottom:10px;">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="sum" value="Sum" />
+                <h:outputLabel id="sum" value="#{calculationResultBean.sum}" />
+                <h:outputLabel for="average" value="Average" />
+                <h:outputLabel id="average" value="#{calculationResultBean.average}" />
+            </h:panelGrid>
+        </p:panel>
+        <h:form>
+            <p:commandButton value="Go back" action="#{calculationResultBean.goBack()}" />
+        </h:form>
+    </h:body>
+</f:view>
+</html>
