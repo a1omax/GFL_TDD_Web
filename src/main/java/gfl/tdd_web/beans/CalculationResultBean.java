@@ -24,7 +24,6 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Base64;
 
 @Named
@@ -78,14 +77,12 @@ public class CalculationResultBean implements Serializable {
     }
 
     private static BufferedImage createBufferedImageChart(double[][] points) {
-        System.out.println("points[][] = " + Arrays.deepToString(points));
 
         XYSeries series = new XYSeries("Data");
 
         for (int i = 0; i < points[0].length; i++) {
             series.add(points[0][i], points[1][i]);
         }
-        System.out.println(Arrays.deepToString(series.toArray()));
         XYSeriesCollection dataset = new XYSeriesCollection(series);
 
         JFreeChart chart = ChartFactory.createScatterPlot(
